@@ -1,0 +1,295 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>黑板变量 &mdash; SAC参考手册 4.0-dev 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="内联函数" href="../inline-functions/" />
+    <link rel="prev" title="引用头段变量值" href="../header-variables/" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0-dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basic/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 编程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../intro-to-sac-programming/">SAC 宏简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../header-variables/">引用头段变量值</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">黑板变量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../inline-functions/">内联函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../macros/">SAC 宏</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../">Docs</a> &raquo;</li>
+        
+          <li><a href="../">SAC 编程</a> &raquo;</li>
+        
+      <li>黑板变量</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/macros/blackboard-variables.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>黑板变量<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>既然是 SAC 编程，就必然少不了变量，SAC 中的变量称之为黑板变量。</p>
+<p>黑板变量是 SAC 中用于临时储存和取回信息而设计的。黑板变量不需要声明即可直接使用，可以用 <a class="reference internal" href="../../commands/setbb/"><span class="doc">setbb</span></a> 和 <a class="reference internal" href="../../commands/evaluate/"><span class="doc">evaluate</span></a> 命令给黑板变量赋值，用 <a class="reference internal" href="../../commands/getbb/"><span class="doc">getbb</span></a> 获取黑板变量的值。也可以用 <a class="reference internal" href="../../commands/writebbf/"><span class="doc">writebbf</span></a> 将黑板变量保存在磁盘文件中，然后使用 <a class="reference internal" href="../../commands/readbbf/"><span class="doc">readbbf</span></a> 命令重新将这些变量读入SAC中。</p>
+<p>引用黑板变量的值的方式为：“<code class="docutils literal notranslate"><span class="pre">%bbvname%</span></code>”，其中 <code class="docutils literal notranslate"><span class="pre">bbvname</span></code> 为黑板变量的变量名。</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SAC</span><span class="o">&gt;</span> <span class="n">echo</span> <span class="n">on</span> <span class="n">processed</span>
+<span class="n">SAC</span><span class="o">&gt;</span> <span class="n">fg</span> <span class="n">seis</span>
+<span class="n">SAC</span><span class="o">&gt;</span> <span class="n">p</span>
+<span class="n">SAC</span><span class="o">&gt;</span> <span class="n">setbb</span> <span class="n">low</span> <span class="mf">2.45</span>         <span class="c1"># 黑板变量 low=2.45</span>
+<span class="n">SAC</span><span class="o">&gt;</span> <span class="n">setbb</span> <span class="n">high</span> <span class="mf">4.94</span>        <span class="c1"># 黑板变量 high=4.94</span>
+<span class="n">SAC</span><span class="o">&gt;</span> <span class="n">bp</span> <span class="n">c</span> <span class="o">%</span><span class="n">low</span><span class="o">%</span> <span class="o">%</span><span class="n">high</span><span class="o">%</span>      <span class="c1"># 引用黑板变量 low 和 high 的值作为滤波的频带</span>
+ <span class="o">==&gt;</span>  <span class="n">bp</span> <span class="n">c</span> <span class="mf">2.45</span> <span class="mf">4.94</span>        <span class="c1"># echo on processed 显示代入值后的命令</span>
+<span class="n">SAC</span><span class="o">&gt;</span> <span class="n">p</span>
+<span class="n">SAC</span><span class="o">&gt;</span> <span class="n">getbb</span> <span class="n">low</span> <span class="n">high</span>         <span class="c1"># 查看黑板变量的值</span>
+ <span class="n">low</span> <span class="o">=</span> <span class="mf">2.45</span>
+ <span class="n">high</span> <span class="o">=</span> <span class="mf">4.94</span>
+</pre></div>
+</div>
+<p>下例展示了如何将黑板变量写入磁盘文件，等需要时再从磁盘文件中获取：</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span>$ sac
+SAC&gt; setbb var1 10          # 整型
+SAC&gt; setbb var2 &quot;text&quot;      # 字符串
+SAC&gt; setbb var3 0.2         # 浮点型
+SAC&gt; wbbf bbf.file          # 写入到文件
+SAC&gt; q
+$ ls
+bbf.file
+$ sac
+SAC&gt; readbbf ./bbf.file
+SAC&gt; getbb
+ NUMERROR = 0
+ SACERROR = &#39;FALSE&#39;
+ SACNFILES = 0
+ VAR1 = 10
+ VAR2 = &#39;text&#39;
+ VAR3 = 0.2
+SAC&gt; getbb var2 var3
+ var2 = &#39;text&#39;
+ var3 = 0.2
+SAC&gt; q
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../inline-functions/" class="btn btn-neutral float-right" title="内联函数" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../header-variables/" class="btn btn-neutral" title="引用头段变量值" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2012-2018, SeisMan.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'4.0-dev',
+            LANGUAGE:'zh_CN',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

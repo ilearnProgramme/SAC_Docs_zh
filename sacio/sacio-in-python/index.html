@@ -1,0 +1,318 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Python 中的 SAC I/O &mdash; SAC参考手册 4.0-dev 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="SAC 相关工具" href="../../tools/" />
+    <link rel="prev" title="Matlab 中的 SAC I/O" href="../sacio-in-matlab/" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0-dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basic/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC I/O</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../sacio-in-c/">C 程序中的 SAC I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sacio-in-fortran/">Fortran 程序中的 SAC I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sacio-in-matlab/">Matlab 中的 SAC I/O</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Python 中的 SAC I/O</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#obspy">安装 obspy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sac">读写 SAC 文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">其他</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../">Docs</a> &raquo;</li>
+        
+          <li><a href="../">SAC I/O</a> &raquo;</li>
+        
+      <li>Python 中的 SAC I/O</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/sacio/sacio-in-python.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python-sac-i-o">
+<h1>Python 中的 SAC I/O<a class="headerlink" href="#python-sac-i-o" title="永久链接至标题">¶</a></h1>
+<p>ObsPy<a class="footnote-reference" href="#id3" id="id1">[1]</a>是用 Python 写的一个专用用于地震学数据处理的模块，这一节介绍如何利用 ObsPy 模块读写 SAC 文件。</p>
+<div class="section" id="obspy">
+<h2>安装 obspy<a class="headerlink" href="#obspy" title="永久链接至标题">¶</a></h2>
+<p>obspy 可以通过 Python 自带的模块管理工具 pip 来安装，目前 obspy 的最新版本为
+1.1.0：</p>
+<div class="code console highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install obspy
+</pre></div>
+</div>
+</div>
+<div class="section" id="sac">
+<h2>读写 SAC 文件<a class="headerlink" href="#sac" title="永久链接至标题">¶</a></h2>
+<p>下面的例子读取了当前目录下的多个 SAC 文件，对每个文件进行滤波，将滤波前后的波形放在一张图上进行对比，最后将滤波后的数据写到文件中。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: uft8 -*-</span>
+<span class="kn">from</span> <span class="nn">obspy</span> <span class="kn">import</span> <span class="n">read</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">st</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s2">&quot;*.z&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">tr</span> <span class="ow">in</span> <span class="n">st</span><span class="p">:</span>
+    <span class="n">tr_filt</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">tr_filt</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;lowpass&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">corners</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">zerophase</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="c1"># Now let&#39;s plot the raw and filtered data...</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tr</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">npts</span> <span class="o">/</span> <span class="n">tr</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">sampling_rate</span><span class="p">,</span> <span class="n">tr</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">delta</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">tr</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Raw Data&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">tr_filt</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Lowpassed Data&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time [s]&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">tr</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">starttime</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="n">tr_filt</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">tr_filt</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s1">&#39;SAC&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>其他<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>ObsPy 是一个相对完整的数据处理模块，SAC 的读写只是其中的一小部分。个人感觉，ObsPy 在读写 SAC 文件时还存在如下几个问题：</p>
+<ul class="simple">
+<li>Trace 类中没有包含文件名的信息，导致无法用简单的办法将波形写回原文件</li>
+<li>无法只读取波形数据中的一小段，即没有实现 cut 的功能</li>
+</ul>
+<p>除了 obspy 之外，其他人也写了一些用于读写 SAC 文件的模块，列举如下，可供参考：</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://github.com/eost/sacpy">https://github.com/eost/sacpy</a></li>
+<li><a class="reference external" href="https://github.com/emolch/pysacio">https://github.com/emolch/pysacio</a></li>
+</ol>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="http://www.obspy.org">http://www.obspy.org</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../tools/" class="btn btn-neutral float-right" title="SAC 相关工具" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../sacio-in-matlab/" class="btn btn-neutral" title="Matlab 中的 SAC I/O" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2012-2018, SeisMan.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'4.0-dev',
+            LANGUAGE:'zh_CN',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

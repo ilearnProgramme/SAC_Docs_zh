@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SAC debug &mdash; SAC参考手册 4.0-dev 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="wh 与 w over" href="../wh-wover/" />
+    <link rel="prev" title="未定义的头段变量" href="../undefined-header-variables/" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0-dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basic/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 技巧与陷阱</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../init-macro/">SAC 初始化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../command-line-length/">命令长度</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endian/">字节序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../read-dir/">读取目录下的 SAC 文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-and-space/">Tab 与空格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../undefined-header-variables/">未定义的头段变量</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SAC debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wh-wover/">wh 与 w over</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../max-allowed-files/">修改最大允许的文件数目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../running-speed/">SAC 与脚本的运行速度</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../">Docs</a> &raquo;</li>
+        
+          <li><a href="../">SAC 技巧与陷阱</a> &raquo;</li>
+        
+      <li>SAC debug</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/tricks-and-traps/debug.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sac-debug">
+<h1>SAC debug<a class="headerlink" href="#sac-debug" title="永久链接至标题">¶</a></h1>
+<p>不管是在 SAC 中执行稍复杂的命令，还是写 SAC 宏文件，又或者是在脚本中调用 SAC，都会遇到各种各样奇怪的错误，明明仔细检查了很多遍，执行起来还是有问题。这个时候先不要怀疑 SAC 有 bug，而是要先把自己写的东西好好 debug 一下。</p>
+<p>SAC 其实自带了一个 debug 工具，即命令 <a class="reference internal" href="../../commands/echo/"><span class="doc">echo</span></a>。该命令用于控制是否显示 SAC 的输出（即警告信息、错误信息和正常的输出信息）以及输入（包括传递给 SAC 的命令、宏以及对命令的处理）。</p>
+<p>以在 Perl 中调用 SAC 为例：</p>
+<div class="code perl highlight-default notranslate"><div class="highlight"><pre><span></span>#!/usr/bin/env perl
+use strict;
+use warnings;
+
+my $var0 = 3.0;
+my $var1 = 5.0;
+open(SAC, &quot;|sac&quot;);
+print SAC &quot;r STA.BHN STA.BHE STA.BHZ \n&quot;;
+print SAC &quot;ch t0 $var0+$var1\n&quot;;
+print SAC &quot;w over&quot;;
+print SAC &quot;q\n&quot;;
+close(SAC);
+</pre></div>
+</div>
+<p>这个脚本是有问题的，但是对于刚刚写脚本的人来说，可能看不出问题。直接执行会出现如下错误：</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">ERROR</span> <span class="mi">1312</span><span class="p">:</span> <span class="n">Bad</span> <span class="n">number</span> <span class="n">of</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">write</span> <span class="n">file</span> <span class="nb">list</span><span class="p">:</span> <span class="mi">1</span> <span class="mi">3</span>
+<span class="n">SAC</span> <span class="n">Error</span><span class="p">:</span> <span class="n">EOF</span><span class="o">/</span><span class="n">Quit</span>
+     <span class="n">SAC</span> <span class="n">executed</span> <span class="kn">from</span> <span class="nn">a</span> <span class="n">script</span><span class="p">:</span> <span class="n">quit</span> <span class="n">command</span> <span class="n">missing</span>
+     <span class="n">Please</span> <span class="n">add</span> <span class="n">a</span> <span class="n">quit</span> <span class="n">to</span> <span class="n">the</span> <span class="n">script</span> <span class="n">to</span> <span class="n">avoid</span> <span class="n">this</span> <span class="n">message</span>
+     <span class="n">If</span> <span class="n">you</span> <span class="n">think</span> <span class="n">you</span> <span class="n">got</span> <span class="n">this</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">error</span><span class="p">,</span>
+     <span class="n">please</span> <span class="n">report</span> <span class="n">it</span> <span class="n">to</span><span class="p">:</span> <span class="n">sac</span><span class="o">-</span><span class="n">help</span><span class="nd">@iris</span><span class="o">.</span><span class="n">washington</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+<p>从这些输出信息里其实看不出来太多有用的信息。</p>
+<p>如果加上“<code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">on</span></code>”，脚本如下：</p>
+<div class="code perl highlight-default notranslate"><div class="highlight"><pre><span></span>#!/usr/bin/env perl
+use strict;
+use warnings;
+
+my $var0 = 3.0;
+my $var1 = 5.0;
+open(SAC, &quot;|sac&quot;);
+print SAC &quot;echo on\n&quot;;      # 加了这一行
+print SAC &quot;r STA.BHN STA.BHE STA.BHZ \n&quot;;
+print SAC &quot;ch t0 $var0+$var1\n&quot;;
+print SAC &quot;w over&quot;;
+print SAC &quot;q\n&quot;;
+close(SAC);
+</pre></div>
+</div>
+<p>运行结果如下：</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">r</span> <span class="n">STA</span><span class="o">.</span><span class="n">BHN</span> <span class="n">STA</span><span class="o">.</span><span class="n">BHE</span> <span class="n">STA</span><span class="o">.</span><span class="n">BHZ</span>
+ <span class="n">ch</span> <span class="n">t0</span> <span class="mi">3</span><span class="o">+</span><span class="mi">5</span>
+ <span class="n">w</span> <span class="n">overq</span>
+ <span class="n">ERROR</span> <span class="mi">1312</span><span class="p">:</span> <span class="n">Bad</span> <span class="n">number</span> <span class="n">of</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">write</span> <span class="n">file</span> <span class="nb">list</span><span class="p">:</span> <span class="mi">1</span> <span class="mi">3</span>
+<span class="n">SAC</span> <span class="n">Error</span><span class="p">:</span> <span class="n">EOF</span><span class="o">/</span><span class="n">Quit</span>
+     <span class="n">SAC</span> <span class="n">executed</span> <span class="kn">from</span> <span class="nn">a</span> <span class="n">script</span><span class="p">:</span> <span class="n">quit</span> <span class="n">command</span> <span class="n">missing</span>
+     <span class="n">Please</span> <span class="n">add</span> <span class="n">a</span> <span class="n">quit</span> <span class="n">to</span> <span class="n">the</span> <span class="n">script</span> <span class="n">to</span> <span class="n">avoid</span> <span class="n">this</span> <span class="n">message</span>
+     <span class="n">If</span> <span class="n">you</span> <span class="n">think</span> <span class="n">you</span> <span class="n">got</span> <span class="n">this</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">error</span><span class="p">,</span>
+     <span class="n">please</span> <span class="n">report</span> <span class="n">it</span> <span class="n">to</span><span class="p">:</span> <span class="n">sac</span><span class="o">-</span><span class="n">help</span><span class="nd">@iris</span><span class="o">.</span><span class="n">washington</span><span class="o">.</span><span class="n">edu</span>
+ <span class="n">quit</span>
+</pre></div>
+</div>
+<p>此时会显示所有脚本传递给 SAC 来执行的命令，从中，可以很明显地看到两个错误。</p>
+<p>一个是“<code class="docutils literal notranslate"><span class="pre">print</span> <span class="pre">SAC</span> <span class="pre">&quot;ch</span> <span class="pre">$var0+$var1\n&quot;</span></code>”，由于使用的是 <code class="docutils literal notranslate"><span class="pre">print</span></code>
+语句，perl 会直接做变量替换然后把结果传递给 SAC，因而真正传递给 SAC 的是
+<code class="docutils literal notranslate"><span class="pre">ch</span> <span class="pre">t0</span> <span class="pre">3+5</span></code>，而不是想象中的 <code class="docutils literal notranslate"><span class="pre">ch</span> <span class="pre">t0</span> <span class="pre">8</span></code>，这个错误可以通过使用
+<code class="docutils literal notranslate"><span class="pre">printf</span></code> 语句来解决。</p>
+<p>另一个是，由于 <code class="docutils literal notranslate"><span class="pre">print</span> <span class="pre">SAC</span> <span class="pre">&quot;w</span> <span class="pre">over&quot;</span></code> 语句中忘了加换行符，导致实际传递给 SAC 的不是 <code class="docutils literal notranslate"><span class="pre">w</span> <span class="pre">over</span></code>，而是 <code class="docutils literal notranslate"><span class="pre">w</span> <span class="pre">overq</span></code>，即内存中有三个波形文件，而 <code class="docutils literal notranslate"><span class="pre">write</span></code> 命令中却只给了一个文件名，因而出现了错误1312。</p>
+<p>由此可见，<a class="reference internal" href="../../commands/echo/"><span class="doc">echo</span></a> 命令可以帮助用户清楚地知道真正传递给 SAC 的是什么，因而是一个很好的 SAC 调试工具。</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../wh-wover/" class="btn btn-neutral float-right" title="wh 与 w over" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../undefined-header-variables/" class="btn btn-neutral" title="未定义的头段变量" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2012-2018, SeisMan.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'4.0-dev',
+            LANGUAGE:'zh_CN',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

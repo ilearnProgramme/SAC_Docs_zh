@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>incrementstack &mdash; SAC参考手册 4.0-dev 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="liststack" href="../liststack/" />
+    <link rel="prev" title="globalstack" href="../globalstack/" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0-dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basic/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SSS 信号叠加子程序</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../sss/">信号叠加子程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../addstack/">addstack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changestack/">changestack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deletestack/">deletestack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deltacheck/">deltacheck</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distanceaxis/">distanceaxis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distancewindow/">distancewindow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../globalstack/">globalstack</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">incrementstack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">语法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">缺省值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">示例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../liststack/">liststack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotrecordsection/">plotrecordsection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotstack/">plotstack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sumstack/">sumstack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timeaxis/">timeaxis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timewindow/">timewindow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traveltime/">traveltime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../velocitymodel/">velocitymodel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../velocityroset/">velocityroset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writestack/">writestack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zerostack/">zerostack</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../">Docs</a> &raquo;</li>
+        
+          <li><a href="../">SSS 信号叠加子程序</a> &raquo;</li>
+        
+      <li>incrementstack</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/sss/incrementstack.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="incrementstack">
+<h1>incrementstack<a class="headerlink" href="#incrementstack" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>概要<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>叠加文件列表中的增量属性</p>
+</div>
+<div class="section" id="id2">
+<h2>语法<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IncrementStack</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>缺省值<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>缺省值为0</p>
+</div>
+<div class="section" id="id4">
+<h2>说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>可以设定增量的属性包括静态时间延迟、视速度和速度模型中的截距时间。若属性增量为0.0，则属性值不改变。</p>
+<p>可以为视速度或速度模型截距时间设置增量，其他属性值则自动计算以保持在特定点的零时间延迟。</p>
+</div>
+<div class="section" id="id5">
+<h2>示例<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SAC</span><span class="o">/</span><span class="n">SSS</span><span class="o">&gt;</span> <span class="n">addstack</span> <span class="n">filea</span>
+<span class="n">SAC</span><span class="o">/</span><span class="n">SSS</span><span class="o">&gt;</span> <span class="n">addstack</span> <span class="n">fileb</span>
+<span class="n">SAC</span><span class="o">/</span><span class="n">SSS</span><span class="o">&gt;</span> <span class="n">addstack</span> <span class="n">filec</span>
+<span class="n">SAC</span><span class="o">/</span><span class="n">SSS</span><span class="o">&gt;</span> <span class="n">addstack</span> <span class="n">filed</span>
+<span class="n">SAC</span><span class="o">/</span><span class="n">SSS</span><span class="o">&gt;</span> <span class="n">velocitymodel</span> <span class="mi">1</span> <span class="n">refr</span> <span class="n">vapp</span> <span class="mf">7.9</span> <span class="n">vappi</span> <span class="mf">0.1</span> <span class="n">tovm</span> <span class="n">calc</span> <span class="n">dist</span> <span class="mf">320.</span> <span class="n">tvm</span> <span class="mf">45.</span>
+<span class="n">SAC</span><span class="o">/</span><span class="n">SSS</span><span class="o">&gt;</span> <span class="n">sumstack</span>
+<span class="n">SAC</span><span class="o">/</span><span class="n">SSS</span><span class="o">&gt;</span> <span class="n">writestack</span> <span class="n">stack1</span>
+<span class="n">SAC</span><span class="o">/</span><span class="n">SSS</span><span class="o">&gt;</span> <span class="n">incrementstack</span>
+<span class="n">SAC</span><span class="o">/</span><span class="n">SSS</span><span class="o">&gt;</span> <span class="n">sumstack</span>
+<span class="n">SAC</span><span class="o">/</span><span class="n">SSS</span><span class="o">&gt;</span> <span class="n">writestack</span> <span class="n">stack2</span>
+<span class="n">SAC</span><span class="o">/</span><span class="n">SSS</span><span class="o">&gt;</span> <span class="n">incrementstack</span>
+<span class="n">SAC</span><span class="o">/</span><span class="n">SSS</span><span class="o">&gt;</span> <span class="n">sumstack</span>
+<span class="n">SAC</span><span class="o">/</span><span class="n">SSS</span><span class="o">&gt;</span> <span class="n">writestack</span> <span class="n">stack3</span>
+</pre></div>
+</div>
+<p>上面的命令会产生三个叠加文件，即stack1、stack2、stack3。叠加时使用折射波速度模型，视速度VAPP分别为7.9、8.0、8.1。速度模型截距时间TOVM自动计算以保证在 320km、45s 处具有零时间延迟。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../liststack/" class="btn btn-neutral float-right" title="liststack" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../globalstack/" class="btn btn-neutral" title="globalstack" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2012-2018, SeisMan.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'4.0-dev',
+            LANGUAGE:'zh_CN',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tab 与空格 &mdash; SAC参考手册 4.0-dev 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="未定义的头段变量" href="../undefined-header-variables/" />
+    <link rel="prev" title="读取目录下的 SAC 文件" href="../read-dir/" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0-dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basic/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 技巧与陷阱</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../init-macro/">SAC 初始化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../command-line-length/">命令长度</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endian/">字节序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../read-dir/">读取目录下的 SAC 文件</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Tab 与空格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../undefined-header-variables/">未定义的头段变量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debug/">SAC debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wh-wover/">wh 与 w over</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../max-allowed-files/">修改最大允许的文件数目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../running-speed/">SAC 与脚本的运行速度</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../">Docs</a> &raquo;</li>
+        
+          <li><a href="../">SAC 技巧与陷阱</a> &raquo;</li>
+        
+      <li>Tab 与空格</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/tricks-and-traps/tab-and-space.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tab">
+<h1>Tab 与空格<a class="headerlink" href="#tab" title="永久链接至标题">¶</a></h1>
+<p>编程界有诸多圣战，编辑器 vs IDE，vim vs emacs，以及谁是最好的语言等等。这一节提到的“Tab 与空格”也算是编程界的圣战之一了。这一节并不打算争论究竟该使用Tab 还是空格，而是讨论一下在SAC中使用Tab会遇到的陷阱。</p>
+<p>从终端启动 SAC，试着在 SAC 中键入 Tab 键，你会发现这些 Tab 键仅仅起到了命令补全的作用，因而你是无法直接在交互式 SAC 中输入一个 Tab 键的。因此，在交互式 SAC 下，Tab 键不会造成任何问题。但，当在脚本中调用 SAC，或者写 SAC
+宏时，Tab 键就会产生影响。</p>
+<p>以在 Bash 中调用 SAC 为例:</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sac</span> <span class="o">&lt;&lt;</span> <span class="n">EOF</span>
+    <span class="n">fg</span> <span class="n">seis</span>     <span class="c1"># 此行行首有 Tab，只是你看不见</span>
+    <span class="n">w</span> <span class="n">seis</span><span class="o">.</span><span class="n">sac</span>  <span class="c1"># 此行行首有 Tab，只是你看不见</span>
+    <span class="n">q</span>           <span class="c1"># 此行行首有 Tab，只是你看不见</span>
+<span class="n">EOF</span>
+</pre></div>
+</div>
+<p>由于 SAC 命令前有 Tab 键，导致执行该脚本的结果如下：</p>
+<div class="code console highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sh</span><span class="p">:</span> <span class="n">line</span> <span class="mi">0</span><span class="p">:</span> <span class="n">fg</span><span class="p">:</span> <span class="n">no</span> <span class="n">job</span> <span class="n">control</span>
+<span class="mi">22</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">49</span> <span class="n">up</span> <span class="mi">12</span> <span class="n">days</span><span class="p">,</span> <span class="mi">12</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span>
+<span class="n">USER</span>
+<span class="n">TTY</span>
+<span class="n">FROM</span>
+<span class="mi">8</span> <span class="n">users</span><span class="p">,</span>
+<span class="n">load</span> <span class="n">average</span><span class="p">:</span> <span class="mf">1.45</span><span class="p">,</span> <span class="mf">1.45</span><span class="p">,</span> <span class="mf">1.42</span>
+<span class="n">LOGIN</span><span class="o">@</span>
+<span class="n">IDLE</span>
+<span class="n">JCPU</span>
+<span class="n">sh</span><span class="p">:</span> <span class="n">q</span><span class="p">:</span> <span class="n">command</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="n">SAC</span> <span class="n">Error</span><span class="p">:</span> <span class="n">EOF</span><span class="o">/</span><span class="n">Quit</span>
+<span class="n">SAC</span> <span class="n">executed</span> <span class="kn">from</span> <span class="nn">a</span> <span class="n">script</span><span class="p">:</span> <span class="n">quit</span> <span class="n">command</span> <span class="n">missing</span>
+<span class="n">Please</span> <span class="n">add</span> <span class="n">a</span> <span class="n">quit</span> <span class="n">to</span> <span class="n">the</span> <span class="n">script</span> <span class="n">to</span> <span class="n">avoid</span> <span class="n">this</span> <span class="n">message</span>
+<span class="n">If</span> <span class="n">you</span> <span class="n">think</span> <span class="n">you</span> <span class="n">got</span> <span class="n">this</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">error</span><span class="p">,</span>
+<span class="n">please</span> <span class="n">report</span> <span class="n">it</span> <span class="n">to</span><span class="p">:</span> <span class="n">sac</span><span class="o">-</span><span class="n">help</span><span class="nd">@iris</span><span class="o">.</span><span class="n">washington</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+<p>引起该问题的原因尚不清楚，但比较明显的是，由于命令的行首有 Tab，导致 SAC 对命令的解析出现了问题，所有的命令都被当做外部命令来解释了。在任意脚本语言中调用 SAC，都有可能会出现类似的问题：</p>
+<div class="code perl highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env perl</span>
+<span class="n">use</span> <span class="n">strict</span><span class="p">;</span>
+<span class="n">use</span> <span class="n">warnings</span><span class="p">;</span>
+<span class="nb">open</span><span class="p">(</span><span class="n">SAC</span><span class="p">,</span> <span class="s2">&quot;|sac&quot;</span><span class="p">);</span>
+<span class="nb">print</span> <span class="n">SAC</span> <span class="s2">&quot;     fg seis</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>     <span class="c1"># fg 前面为Tab键</span>
+
+<span class="nb">print</span> <span class="n">SAC</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">fg seis</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>        <span class="c1"># \t 为显式Tab键</span>
+
+<span class="nb">print</span> <span class="n">SAC</span> <span class="n">qq</span> <span class="p">[</span>
+    <span class="n">fg</span> <span class="n">seis</span>                     <span class="c1"># fg 前面有Tab</span>
+    <span class="n">w</span> <span class="n">seis</span><span class="o">.</span><span class="n">sac</span>
+    <span class="n">q</span>
+<span class="p">]</span>
+<span class="n">close</span><span class="p">(</span><span class="n">SAC</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>这个 Perl 脚本的例子中，展示了三种会出现问题的情况，其中第一种和第二种一般都不会这写，所以很少碰到，而第三种写法是常见的写法，经常会需要用缩进来将代码对齐，使得代码更整齐，就可能导致 Tab 键的问题。</p>
+<p>因而，在脚本中调用 SAC 时要尽量避免使用 Tab 键。目前大多数主流编辑器都具备将 Tab 自动转换成空格的功能，建议将这一功能打开，使得在写代码时无论输入
+Tab 还是输入空格都会自动转换成空格。</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../undefined-header-variables/" class="btn btn-neutral float-right" title="未定义的头段变量" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../read-dir/" class="btn btn-neutral" title="读取目录下的 SAC 文件" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2012-2018, SeisMan.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'4.0-dev',
+            LANGUAGE:'zh_CN',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>数据来源 &mdash; SAC参考手册 4.0-dev 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../../genindex/" />
+    <link rel="search" title="搜索" href="../../../search/" />
+    <link rel="next" title="IRIS 地震数据申请工具" href="../iris-tools/" />
+    <link rel="prev" title="数据获取" href="../" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../" class="icon icon-home"> SAC参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0-dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../basic/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data-process/">SAC 数据处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resp/">仪器响应</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">数据获取</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">数据来源</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">国家测震台网数据备份中心</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iris-dmc">IRIS DMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nied">NIED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#natural-resources-canada">Natural Resources Canada</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">其他</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../iris-tools/">IRIS 地震数据申请工具</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/">文档更新历史</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">SAC参考手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../">Docs</a> &raquo;</li>
+        
+          <li><a href="../">数据获取</a> &raquo;</li>
+        
+      <li>数据来源</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/appendix/data-fetch/data-source.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>数据来源<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>地震波形数据的来源有很多，下面列举并简单介绍常见的数据来源。</p>
+<div class="section" id="id2">
+<h2>国家测震台网数据备份中心<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://www.seisdmc.ac.cn/">国家测震台网数据备份中心</a>，隶属于中国地震局地球物理研究所。到2014年底，国家测震台网已建成由170个台站和3个小孔径台阵（共30个子台）组成的国家地震台网；859个台站组成的31个区域地震台网，33个子台组成的6个火山监测台网；291套地震仪器组成的32个应急流动观测台网。国家测震台网数据备份中心可以提供从2007年8月起的全球 M5.5 级以上地震事件以及国内及周边地区 M3.5 级以上地震事件的波形数据。</p>
+<p>要申请数据备份中心的数据，需要注册账户并升级账户属性。要升级账户属性，需要按程序进行申请，并且签署和遵守
+<a class="reference external" href="http://www.seisdmc.ac.cn/class/view?id=8">相关协议</a>。</p>
+</div>
+<div class="section" id="iris-dmc">
+<h2>IRIS DMC<a class="headerlink" href="#iris-dmc" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://ds.iris.edu/ds/nodes/dmc/">IRIS DMC</a> 是世界上最大的地震波形数据中心。</p>
+<p>IRIS DMC的大部分数据是完全公开的，无需注册即可直接申请下载波形数据。从IRIS DMC申请数据的工具有很多： <a class="reference external" href="http://docs.obspy.org/">ObsPy</a>、
+<a class="reference external" href="https://ds.iris.edu/ds/nodes/dmc/manuals/breq_fast/">BREQ_FAST</a>、
+<a class="reference external" href="http://ds.iris.edu/wilber3/find_event">Wilber III</a>、
+<a class="reference external" href="http://service.iris.edu/">Web Service</a>、
+<a class="reference external" href="http://ds.iris.edu/ds/nodes/dmc/software/downloads/irisfetch.m/">irisfetch.m</a>、
+<a class="reference external" href="https://seiscode.iris.washington.edu/projects/ws-fetch-scripts">Web Service Fetch scripts</a>、
+<a class="reference external" href="http://www.seis.sc.edu/sod/">SOD</a> 和
+<a class="reference external" href="https://ds.iris.edu/ds/nodes/dmc/software/downloads/jweed/">JWEED</a>。</p>
+</div>
+<div class="section" id="nied">
+<h2>NIED<a class="headerlink" href="#nied" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://www.bosai.go.jp/">NIED</a>是日本的国家防灾科学技术研究所。其下包含若干台网：高感度地震观测网
+<a class="reference external" href="http://www.hinet.bosai.go.jp/">Hi-net</a>、 宽频带地震台网
+<a class="reference external" href="http://www.fnet.bosai.go.jp/">F-net</a>、强地面运动地震台网
+<a class="reference external" href="http://www.kyoshin.bosai.go.jp/">K-net和KiK-net</a> 和火山观测网
+<a class="reference external" href="http://www.vnet.bosai.go.jp/">V-net</a>。</p>
+</div>
+<div class="section" id="natural-resources-canada">
+<h2>Natural Resources Canada<a class="headerlink" href="#natural-resources-canada" title="永久链接至标题">¶</a></h2>
+<p>加拿大政府的网站 <a class="reference external" href="http://www.nrcan.gc.ca/home">Natural Resources Canada</a> 提供了
+<a class="reference external" href="http://www.earthquakescanada.nrcan.gc.ca/stndon/CNSN-RNSC/index-en.php">Canadian National Seismic Network</a>、
+<a class="reference external" href="http://can-ndc.nrcan.gc.ca/yka/index-en.php">Yellowknife Seismic Array</a>、POLARIS
+Network等台网/台阵的连续波形数据以及这些台网/台阵1975年至今的事件波形数据。</p>
+<p>事件波形数据可以直接
+<a class="reference external" href="http://www.earthquakescanada.nrcan.gc.ca/stndon/NWFA-ANFO/eve/index-en.php">点击下载</a>；连续波形数据则可以通过工具 <a class="reference external" href="http://www.earthquakescanada.nrcan.gc.ca/stndon/AutoDRM/index-en.php">AutoDRM</a> 下载。</p>
+</div>
+<div class="section" id="id9">
+<h2>其他<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://www.ncedc.org/">Northern California Earthquake Data Center</a></li>
+<li><a class="reference external" href="https://pnsn.org/">Pacific Northwest Seismic Network</a></li>
+<li><a class="reference external" href="http://www.scsn.org/">Southern California Seismic Network</a></li>
+<li><a class="reference external" href="http://scedc.caltech.edu/">Southern California Seismic Network at Caltech</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../iris-tools/" class="btn btn-neutral float-right" title="IRIS 地震数据申请工具" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../" class="btn btn-neutral" title="数据获取" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2012-2018, SeisMan.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'4.0-dev',
+            LANGUAGE:'zh_CN',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

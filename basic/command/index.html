@@ -1,0 +1,375 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SAC 命令初探 &mdash; SAC参考手册 4.0-dev 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="文档约定" href="../convection/" />
+    <link rel="prev" title="SAC 设计思想" href="../philosophy/" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0-dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../how-to-learn/">如何学习 SAC？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../how-to-read/">如何阅读本文档？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../start-and-quit/">启动和退出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../philosophy/">SAC 设计思想</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SAC 命令初探</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">SAC 命令长什么样？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">大小写</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">命令简写</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">查看命令语法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">参数默认值</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../convection/">文档约定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../funcgen-and-datagen/">样本数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../read-and-write/">SAC 读和写</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../display/">绘图</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../">Docs</a> &raquo;</li>
+        
+          <li><a href="../">SAC 基础</a> &raquo;</li>
+        
+      <li>SAC 命令初探</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/basic/command.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sac">
+<h1>SAC 命令初探<a class="headerlink" href="#sac" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>SAC 命令长什么样？<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>一个完整的 SAC 命令一般由“命令+选项+参数”构成，其中命令必须有，选项和参数可以成对出现，也可以只出现其中一个。命令、选项以及参数之间用空格分开。如果要将多个命令写在一行，要用<strong>分号</strong>隔开每个命令。例如：</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SAC</span><span class="o">&gt;</span> <span class="n">funcgen</span> <span class="n">random</span> <span class="n">delta</span> <span class="mf">0.1</span> <span class="n">npts</span> <span class="mi">1000</span>
+<span class="n">SAC</span><span class="o">&gt;</span> <span class="n">rmean</span><span class="p">;</span> <span class="n">rtrend</span><span class="p">;</span> <span class="n">taper</span>                 <span class="c1"># 一行内多个命令用分号隔开</span>
+<span class="n">SAC</span><span class="o">&gt;</span> <span class="n">write</span> <span class="n">rand</span><span class="o">.</span><span class="n">SAC</span>
+</pre></div>
+</div>
+<p>其中，<code class="docutils literal notranslate"><span class="pre">funcgen</span></code>、<code class="docutils literal notranslate"><span class="pre">write</span></code>、<code class="docutils literal notranslate"><span class="pre">rmean</span></code>、<code class="docutils literal notranslate"><span class="pre">rtrend</span></code> 和
+<code class="docutils literal notranslate"><span class="pre">taper</span></code> 是命令；<code class="docutils literal notranslate"><span class="pre">random</span></code> 是选项；<code class="docutils literal notranslate"><span class="pre">0.1</span></code> 是选项 <code class="docutils literal notranslate"><span class="pre">delta</span></code>
+的参数，<code class="docutils literal notranslate"><span class="pre">1000</span></code> 是选项 <code class="docutils literal notranslate"><span class="pre">npts</span></code> 的参数；而 <code class="docutils literal notranslate"><span class="pre">rand.SAC</span></code>
+则是一个无选项的参数<a class="footnote-reference" href="#id10" id="id2">[1]</a>。</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p>官方文档的原文是“command”、“keyword”和“option”，本文档 v2.0 中译为“命令”、“关键字”和“参数”。个人感觉，无论是官方的用词还是 v2.0 版的译词都很容易让使用 C 语言和 Linux 的人困惑，因而 v3.0 中一律将其改为命令（command）、选项（option）和参数（argument）。</p>
+<p class="last">这里解释一下选项（option）和参数（argument）的区别。一个命令有哪些选项是由命令规定的，其控制了命令的一些特性，因而选项的作用是告诉命令“<strong>要</strong>改某个特性”。但是具体<strong>怎么</strong>改呢？这个就交给参数来控制了。命令或选项只规定了参数的类型（整型、浮点型、字符串、枚举型或者逻辑型），用户需要根据自己的需求给定参数值。</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>大小写<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>SAC 的命令和选项都是不区分大小写的，这意味着你可以根据自己的喜好使用
+<code class="docutils literal notranslate"><span class="pre">funcgen</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">FUNCGEN</span></code>，SAC 在解释命令前都会将其转换为大写字母。</p>
+<p>需要注意的是，由于 Linux 本身是区分大小写的，所以对于出现在参数中的文件名、目录名或者由引号包围的字符串来说，大小写是完全不同的。比如 <code class="docutils literal notranslate"><span class="pre">rand.SAC</span></code>
+和 <code class="docutils literal notranslate"><span class="pre">RAND.SAC</span></code> 是两个完全不同的参数。</p>
+</div>
+<div class="section" id="id4">
+<h2>命令简写<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>SAC 的大多数命令及选项都有简写形式。比如上面的命令简写形式如下：</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SAC</span><span class="o">&gt;</span> <span class="n">fg</span> <span class="n">r</span> <span class="n">d</span> <span class="mf">0.1</span> <span class="n">n</span> <span class="mi">1000</span>
+<span class="n">SAC</span><span class="o">&gt;</span> <span class="n">rmean</span><span class="p">;</span> <span class="n">rtr</span><span class="p">;</span> <span class="n">taper</span>
+<span class="n">SAC</span><span class="o">&gt;</span> <span class="n">w</span> <span class="n">rand</span><span class="o">.</span><span class="n">SAC</span>
+</pre></div>
+</div>
+<p>命令和选项究竟可以简写成怎样的形式，是由 SAC 自身规定的。简写的好处在于，在不产生歧义的前提下尽量减少用户的击键数；坏处在于，若对命令不是足够熟悉，简写后的命令变得很难读和难理解。比如你一看就知道 <code class="docutils literal notranslate"><span class="pre">delta</span></code> 代表的是采样周期<a class="footnote-reference" href="#id11" id="id5">[2]</a>，而 <code class="docutils literal notranslate"><span class="pre">d</span></code> 却不那么直观，可能是 <code class="docutils literal notranslate"><span class="pre">delta</span></code>， 也可能是
+<code class="docutils literal notranslate"><span class="pre">demon</span></code>。所以，在终端调用 SAC 时，可以多用简写以减少击键数，但在脚本中调用 SAC 时应仅使用那些常用命令的简写，不要滥用，否则一段时间后你会看不懂自己写的脚本的。</p>
+</div>
+<div class="section" id="id6">
+<h2>查看命令语法<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>SAC 自带了英文的帮助文档，详细解释了每个命令的语法，可以通过 <a class="reference internal" href="../../commands/help/"><span class="doc">help</span></a>
+命令查看相应文档：</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SAC</span><span class="o">&gt;</span> <span class="n">help</span> <span class="n">funcgen</span> <span class="n">write</span>   <span class="c1"># 命令的简写是h fg w</span>
+</pre></div>
+</div>
+<p>也可以直接查看 <code class="docutils literal notranslate"><span class="pre">$SACHOME/aux/help</span></code> 下的文档，或者查看本文档的命令部分。</p>
+</div>
+<div class="section" id="id7">
+<h2>参数默认值<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>为了让 SAC 易学易用，几乎所有命令参数都有一个“系统默认参数值”，这些“系统默认参数值”都是经过精心挑选的，同时用户又可以随时修改参数值。这样的设计使得 SAC 易用同时又不失灵活性。</p>
+<p>下面以 C 语言为例做一些说明<a class="footnote-reference" href="#id12" id="id8">[3]</a>，希望能够帮助用户理解 SAC 参数的一些特点。</p>
+<p>在 C 语言中，函数有主函数和子函数之分，变量又有全局变量和局部变量之分。所有的变量都可以被初始化为适当的值。</p>
+<p>任意一个子函数，都可以使用全局变量的值，即函数的执行可以被全局变量所控制，同时也可以修改全局变量的值。这使得代码的管理和调试变得困难。实际写程序时一般会定义专门的子函数来修改全局变量。</p>
+<p>任意一个子函数，又都有自己的局部变量。这些局部变量在每次子函数被调用时都会被定义、初始化、使用和赋值，一旦子函数调用结束，变量即被撤销。如果给这些变量加上 <code class="docutils literal notranslate"><span class="pre">static</span></code> 修饰符，则这些局部变量变身为静态局部变量。</p>
+<p>静态局部变量，会在程序刚开始的时候就完成初始化，也是唯一的一次初始化。静态局部变量仅在定义它的子函数里可见，子函数可以任意修改静态局部变量的值，但是每次子函数调用结束时变量不会被撤销，因此再次调用一个子函数时，静态局部变量的值可能已经被上一次的子函数调用所修改。</p>
+<p>SAC 中有与之相对应的一些概念。SAC 就是一个主函数，每一个命令都是一个子函数。所以 SAC 命令可以分为两类：</p>
+<dl class="docutils">
+<dt>操作执行类</dt>
+<dd>对数据进行某些操作（受全局变量控制，同时又有自己的静态局部变量）</dd>
+<dt>参数设定类</dt>
+<dd>改变 SAC 的全局参数值（即 C 语言中专门用于修改全局变量的子函数）</dd>
+</dl>
+<p>在启动 SAC（主函数）的时候，所有的选项（C 语言中的全局变量和静态局部变量）都会被初始化为指定的“系统默认参数值”（全局变量和静态局部变量的唯一一次初始化）。</p>
+<p>使用参数设定类命令的时候，其修改了 SAC 的全局参数，会影响接下来与之相关的所有其它命令的执行效果。使用操作执行类命令的时候，在命令中设定参数，相当于修改静态局部变量的值，不仅会影响当前命令的执行，也会影响之后所有同名命令的执行。</p>
+<p>当你在某个命令中为某个选项指定了一个参数值的时候，该参数值会成为该命令的该选项的“参数当前值”，该“参数当前值”即成为接下来所有该命令的该选项的“当前默认值”。</p>
+<p>鉴于 SAC 的这样一个特性，在一次会话中，多次执行同一个命令时，一定需要注意选项的当前值是多少，因为这可能会影响到后面的一系列结果，这个必须理解和牢记！</p>
+<p>当你在一次会话中执行了很多个命令的时候，SAC 参数可能已经被弄得一片混乱，你可以使用 <a class="reference internal" href="../../commands/inicm/"><span class="doc">inicm</span></a> 命令在不退出 SAC 的情况下重新初始化。</p>
+<p>下面用例子解释一下：</p>
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SAC</span><span class="o">&gt;</span> <span class="n">funcgen</span>
+<span class="n">SAC</span><span class="o">&gt;</span> <span class="n">plot</span>
+<span class="n">SAC</span><span class="o">&gt;</span> <span class="n">funcgen</span> <span class="n">step</span> <span class="n">delta</span> <span class="mf">0.1</span> <span class="n">npts</span> <span class="mi">1000</span>
+<span class="n">SAC</span><span class="o">&gt;</span> <span class="n">plot</span>
+<span class="n">SAC</span><span class="o">&gt;</span> <span class="n">funcgen</span> <span class="n">boxcar</span>
+<span class="n">SAC</span><span class="o">&gt;</span> <span class="n">plot</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">funcgen</span></code> 的默认值为 <code class="docutils literal notranslate"><span class="pre">funcgen</span> <span class="pre">impulse</span> <span class="pre">npts</span> <span class="pre">100</span> <span class="pre">delta</span> <span class="pre">1.0</span> <span class="pre">begin</span> <span class="pre">0.</span></code></li>
+<li>第一个 <code class="docutils literal notranslate"><span class="pre">funcgen</span></code> 命令没有使用任何选项和参数，其直接使用系统默认值，生成一个脉冲数据，并保存到内存中。该数据的起始时间为 <code class="docutils literal notranslate"><span class="pre">0</span></code>，采样周期为 <code class="docutils literal notranslate"><span class="pre">1.0</span></code>，数据点数为 <code class="docutils literal notranslate"><span class="pre">100</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">plot</span></code> 命令会打开一个绘图窗口，并将内存中的数据绘制在窗口中</li>
+<li>第二个 <code class="docutils literal notranslate"><span class="pre">funcgen</span></code> 命令生成了一个step函数<a class="footnote-reference" href="#id13" id="id9">[4]</a>，并设置其采样周期为
+<code class="docutils literal notranslate"><span class="pre">0.1</span></code>，数据点数为 <code class="docutils literal notranslate"><span class="pre">1000</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">0.1</span></code> 和 <code class="docutils literal notranslate"><span class="pre">1000</span></code> 分别成为 <code class="docutils literal notranslate"><span class="pre">delta</span></code> 和 <code class="docutils literal notranslate"><span class="pre">npts</span></code> 的“参数当前值”</li>
+<li>第三个 <code class="docutils literal notranslate"><span class="pre">funcgen</span></code> 命令生成了 boxcar 函数，从绘图结果可以看出 <code class="docutils literal notranslate"><span class="pre">delta</span></code>
+的值为 <code class="docutils literal notranslate"><span class="pre">0.1</span></code>，<code class="docutils literal notranslate"><span class="pre">npts</span></code> 的值为 <code class="docutils literal notranslate"><span class="pre">1000</span></code>，即继承了上一次命令的参数值</li>
+</ol>
+<table class="docutils footnote" frame="void" id="id10" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>其实可以有很多选项，这里都省略了。</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id11" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[2]</a></td><td>也称为采样时间，即两次数据采样的时间间隔，本文档将统一使用“采样周期”。</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id12" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[3]</a></td><td>有些地方不是很准确。</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id13" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id9">[4]</a></td><td>注意：内存中的脉冲函数已经没了。</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../convection/" class="btn btn-neutral float-right" title="文档约定" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../philosophy/" class="btn btn-neutral" title="SAC 设计思想" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2012-2018, SeisMan.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'4.0-dev',
+            LANGUAGE:'zh_CN',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

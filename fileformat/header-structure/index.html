@@ -1,0 +1,605 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SAC 头段结构 &mdash; SAC参考手册 4.0-dev 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="SAC 头段变量" href="../header-variables/" />
+    <link rel="prev" title="两种数据形式" href="../binary-and-alphanumeric/" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0-dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basic/">SAC 基础</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 文件格式</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../intro-to-fileformat/">SAC 格式简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binary-and-alphanumeric/">两种数据形式</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SAC 头段结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../header-variables/">SAC 头段变量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../times/">SAC 中的时间概念</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../">Docs</a> &raquo;</li>
+        
+          <li><a href="../">SAC 文件格式</a> &raquo;</li>
+        
+      <li>SAC 头段结构</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/fileformat/header-structure.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sac">
+<h1>SAC 头段结构<a class="headerlink" href="#sac" title="永久链接至标题">¶</a></h1>
+<p>SAC 头段区包含了一系列头段变量，从这些头段变量中可以了解到波形记录的很多信息，比如台站经纬度、发震时刻、震相到时等等。下表列出了 SAC 头段区的全部头段变量。</p>
+<table border="1" class="docutils align-center" id="id3">
+<caption><span class="caption-number">表 1 </span><span class="caption-text">SAC 头段变量列表</span><a class="headerlink" href="#id3" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col width="9%" />
+<col width="9%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+<col width="13%" />
+<col width="19%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Byte</th>
+<th class="head">Type</th>
+<th class="head">&#160;</th>
+<th class="head">&#160;</th>
+<th class="head">&#160;</th>
+<th class="head">&#160;</th>
+<th class="head">&#160;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>F</td>
+<td>delta</td>
+<td>depmin</td>
+<td>depmax</td>
+<td>scale</td>
+<td>odelta</td>
+</tr>
+<tr class="row-odd"><td>20</td>
+<td>F</td>
+<td>b</td>
+<td>e</td>
+<td>o</td>
+<td>a</td>
+<td>internal</td>
+</tr>
+<tr class="row-even"><td>40</td>
+<td>F</td>
+<td>t0</td>
+<td>t1</td>
+<td>t2</td>
+<td>t3</td>
+<td>t4</td>
+</tr>
+<tr class="row-odd"><td>60</td>
+<td>F</td>
+<td>t5</td>
+<td>t6</td>
+<td>t7</td>
+<td>t8</td>
+<td>t9</td>
+</tr>
+<tr class="row-even"><td>80</td>
+<td>F</td>
+<td>f</td>
+<td>resp0</td>
+<td>resp1</td>
+<td>resp2</td>
+<td>resp3</td>
+</tr>
+<tr class="row-odd"><td>100</td>
+<td>F</td>
+<td>resp4</td>
+<td>resp5</td>
+<td>resp6</td>
+<td>resp7</td>
+<td>resp8</td>
+</tr>
+<tr class="row-even"><td>120</td>
+<td>F</td>
+<td>resp9</td>
+<td>stla</td>
+<td>stlo</td>
+<td>stel</td>
+<td>stdp</td>
+</tr>
+<tr class="row-odd"><td>140</td>
+<td>F</td>
+<td>evla</td>
+<td>evlo</td>
+<td>evel</td>
+<td>evdp</td>
+<td>mag</td>
+</tr>
+<tr class="row-even"><td>160</td>
+<td>F</td>
+<td>user0</td>
+<td>user1</td>
+<td>user2</td>
+<td>user3</td>
+<td>user4</td>
+</tr>
+<tr class="row-odd"><td>180</td>
+<td>F</td>
+<td>user5</td>
+<td>user6</td>
+<td>user7</td>
+<td>user8</td>
+<td>user9</td>
+</tr>
+<tr class="row-even"><td>200</td>
+<td>F</td>
+<td>dist</td>
+<td>az</td>
+<td>baz</td>
+<td>gcarc</td>
+<td>internal</td>
+</tr>
+<tr class="row-odd"><td>220</td>
+<td>F</td>
+<td>internal</td>
+<td>depmen</td>
+<td>cmpaz</td>
+<td>cmpinc</td>
+<td>xminimum</td>
+</tr>
+<tr class="row-even"><td>240</td>
+<td>F</td>
+<td>xmaximum</td>
+<td>yminimum</td>
+<td>ymaximum</td>
+<td>unused</td>
+<td>unused</td>
+</tr>
+<tr class="row-odd"><td>260</td>
+<td>F</td>
+<td>unused</td>
+<td>unused</td>
+<td>unused</td>
+<td>unused</td>
+<td>unused</td>
+</tr>
+<tr class="row-even"><td>280</td>
+<td>N</td>
+<td>nzyear</td>
+<td>nzjday</td>
+<td>nzhour</td>
+<td>nzmin</td>
+<td>nzsec</td>
+</tr>
+<tr class="row-odd"><td>300</td>
+<td>N</td>
+<td>nzmsec</td>
+<td>nvhdr</td>
+<td>norid</td>
+<td>nevid</td>
+<td>npts</td>
+</tr>
+<tr class="row-even"><td>320</td>
+<td>N</td>
+<td>internal</td>
+<td>nwfid</td>
+<td>nxsize</td>
+<td>nysize</td>
+<td>unused</td>
+</tr>
+<tr class="row-odd"><td>340</td>
+<td>I</td>
+<td>iftype</td>
+<td>idep</td>
+<td>iztype</td>
+<td>unused</td>
+<td>iinst</td>
+</tr>
+<tr class="row-even"><td>360</td>
+<td>I</td>
+<td>istreg</td>
+<td>ievreg</td>
+<td>ievtyp</td>
+<td>iqual</td>
+<td>isynth</td>
+</tr>
+<tr class="row-odd"><td>380</td>
+<td>I</td>
+<td>imagtyp</td>
+<td>imagsrc</td>
+<td>unused</td>
+<td>unused</td>
+<td>unused</td>
+</tr>
+<tr class="row-even"><td>400</td>
+<td>I</td>
+<td>unused</td>
+<td>unused</td>
+<td>unused</td>
+<td>unused</td>
+<td>unused</td>
+</tr>
+<tr class="row-odd"><td>420</td>
+<td>L</td>
+<td>leven</td>
+<td>lpspol</td>
+<td>lovrok</td>
+<td>lcalda</td>
+<td>unused</td>
+</tr>
+<tr class="row-even"><td>440</td>
+<td>K</td>
+<td>kstnm</td>
+<td>kevnm*</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>464</td>
+<td>K</td>
+<td>khole</td>
+<td>ko</td>
+<td>ka</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>488</td>
+<td>K</td>
+<td>kt0</td>
+<td>kt1</td>
+<td>kt2</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>512</td>
+<td>K</td>
+<td>kt3</td>
+<td>kt4</td>
+<td>kt5</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>536</td>
+<td>K</td>
+<td>kt6</td>
+<td>kt7</td>
+<td>kt8</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>560</td>
+<td>K</td>
+<td>kt9</td>
+<td>kf</td>
+<td>kuser0</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>584</td>
+<td>K</td>
+<td>kuser1</td>
+<td>kuser2</td>
+<td>kcmpnm</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>608</td>
+<td>K</td>
+<td>knetwk</td>
+<td>kdatrd</td>
+<td>kinst</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p>整个头段区，共有头段变量133个，占632个字节。头段区的前四个字节是第一个头段变量 <code class="docutils literal notranslate"><span class="pre">delta</span></code>，第5–8个字节是第二个头段变量 <code class="docutils literal notranslate"><span class="pre">depmin</span></code>，第21–24个字节是第6个头段变量 <code class="docutils literal notranslate"><span class="pre">b</span></code>，以此类推。</p>
+<p>表的第一列给出了当前行的第一个头段变量在文件中的起始字节，第二列给出了当前行的头段变量的变量类型。</p>
+<p>下表列出了 SAC 头段中的头段变量类型及其相关信息。第一列为头段变量类型代码，第二类给出了其代表的头段变量类型，第三列指出 C 源码中该变量的是用什么类型定义的，第四列给出了每个变量所占据的字节数，第五列给出了写字符型 SAC 文件时的输出格式，最后一列则给出该类型的未定义值。</p>
+<table border="1" class="docutils align-center" id="id4">
+<caption><span class="caption-number">表 2 </span><span class="caption-text">变量类型说明</span><a class="headerlink" href="#id4" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col width="10%" />
+<col width="12%" />
+<col width="18%" />
+<col width="12%" />
+<col width="20%" />
+<col width="28%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Code</th>
+<th class="head">Type</th>
+<th class="head">C Type</th>
+<th class="head">sizeof</th>
+<th class="head">printf</th>
+<th class="head">未定义值</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">F</span></code></td>
+<td>浮点型</td>
+<td><code class="docutils literal notranslate"><span class="pre">float</span></code></td>
+<td>4</td>
+<td><code class="docutils literal notranslate"><span class="pre">%15.7f</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">-12345.0</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">N</span></code></td>
+<td>整型</td>
+<td><code class="docutils literal notranslate"><span class="pre">int</span></code></td>
+<td>4</td>
+<td><code class="docutils literal notranslate"><span class="pre">%10d</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">-12345</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">I</span></code></td>
+<td>枚举型</td>
+<td><code class="docutils literal notranslate"><span class="pre">int</span></code></td>
+<td>4</td>
+<td><code class="docutils literal notranslate"><span class="pre">%10d</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">-12345</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">L</span></code></td>
+<td>逻辑型</td>
+<td><code class="docutils literal notranslate"><span class="pre">int</span></code></td>
+<td>4</td>
+<td><code class="docutils literal notranslate"><span class="pre">%10d</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">FALSE</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">K</span></code></td>
+<td>字符型</td>
+<td><code class="docutils literal notranslate"><span class="pre">char*</span></code></td>
+<td>8</td>
+<td><code class="docutils literal notranslate"><span class="pre">%-8.8s</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">&quot;-12345</span>&#160; <span class="pre">&quot;</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">A</span></code></td>
+<td>辅助型</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p>说明：</p>
+<ul class="simple">
+<li>所有头段变量的变量名均以变量类型码开头，比如 <code class="docutils literal notranslate"><span class="pre">nvhdr</span></code> 是 N 型变量，
+<code class="docutils literal notranslate"><span class="pre">leven</span></code> 是 L 型变量，但 F 型变量除外；</li>
+<li>枚举型变量本质上是 <code class="docutils literal notranslate"><span class="pre">int</span></code> 型，只能在固定的几个值中取值；</li>
+<li>逻辑型变量可以取值 <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> 和 <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>，本质上分别是整型的1和0；</li>
+<li>字符型变量长度为8<a class="footnote-reference" href="#id2" id="id1">[1]</a>，只有 <code class="docutils literal notranslate"><span class="pre">kevnm</span></code> 很特殊，其长度为16；</li>
+<li>变量名为 <code class="docutils literal notranslate"><span class="pre">internal</span></code> 表示该变量是 SAC 内部使用的头段变量，用户不可对其进行操作；</li>
+<li>变量名为 <code class="docutils literal notranslate"><span class="pre">unused</span></code> 表示该变量尚未使用，为以后可能出现的新头段变量占位；</li>
+<li>当某个头段变量未定义时，其包含未定义值；不同类型的头段变量有不同的未定义值；若一个整型头段变量的值为 <code class="docutils literal notranslate"><span class="pre">-12345</span></code>，则认为该变量未定义；实际使用时，可以直接用 <code class="docutils literal notranslate"><span class="pre">undef</span></code> 表示所有类型的头段变量的未定义值，SAC 会根据头段变量的类型自动将其转换成相应类型的未定义值。</li>
+<li>辅助型变量并不在 SAC 头段区中，而是从其它头段变量推导得到的；</li>
+</ul>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>C 语言中用 <code class="docutils literal notranslate"><span class="pre">\0</span></code> 作为字符串的结束标识符，因而源码中变量的实际长度为9。</td></tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../header-variables/" class="btn btn-neutral float-right" title="SAC 头段变量" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../binary-and-alphanumeric/" class="btn btn-neutral" title="两种数据形式" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2012-2018, SeisMan.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'4.0-dev',
+            LANGUAGE:'zh_CN',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

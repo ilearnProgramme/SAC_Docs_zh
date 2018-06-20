@@ -1,0 +1,410 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>IRIS 地震数据申请工具 &mdash; SAC参考手册 4.0-dev 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../../genindex/" />
+    <link rel="search" title="搜索" href="../../../search/" />
+    <link rel="next" title="数据命名规则" href="../../naming-convections/" />
+    <link rel="prev" title="数据来源" href="../data-source/" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../" class="icon icon-home"> SAC参考手册
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0-dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../basic/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data-process/">SAC 数据处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resp/">仪器响应</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">数据获取</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../data-source/">数据来源</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">IRIS 地震数据申请工具</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#wilber-iii">Wilber III</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#breq-fast">BREQ_FAST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dmc-web-service">DMC Web Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jweed">JWEED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#web-service-fetch-scripts">Web Service fetch scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#irisfetch-m">irisfetch.m</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sod">SOD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#obspy">ObsPy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#seismiquery">SeismiQuery</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/">文档更新历史</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">SAC参考手册</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../">Docs</a> &raquo;</li>
+        
+          <li><a href="../">数据获取</a> &raquo;</li>
+        
+      <li>IRIS 地震数据申请工具</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/appendix/data-fetch/iris-tools.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="iris">
+<h1>IRIS 地震数据申请工具<a class="headerlink" href="#iris" title="永久链接至标题">¶</a></h1>
+<p>从 IRIS 申请地震波形数据时，有很多工具可供选择与使用。这一节不会去介绍工具的具体用法，而是试着总结不同工具各自的优缺点以及适用范围。读者应根据实际需求选择合适的工具，并自行阅读相应工具的说明文档。</p>
+<div class="section" id="wilber-iii">
+<h2>Wilber III<a class="headerlink" href="#wilber-iii" title="永久链接至标题">¶</a></h2>
+<p>主页：<a class="reference external" href="http://ds.iris.edu/wilber3/find_event">http://ds.iris.edu/wilber3/find_event</a></p>
+<p>教程：<a class="reference external" href="https://blog.seisman.info/wilber3/">https://blog.seisman.info/wilber3/</a></p>
+<ul class="simple">
+<li>适用范围：仅用于申请基于事件的事件波形数据</li>
+<li>特色及优点：<ul>
+<li>网页端</li>
+<li>提供地震目录，筛选条件：经纬度范围、发震时刻、震级范围</li>
+<li>基于 Google 地图服务显示地震分布</li>
+<li>台站筛选条件：台网名、虚拟台网名、通道名、震中距范围、方位角范围</li>
+<li>基于 Google 地图服务显示台站分布</li>
+<li>提供波形预览</li>
+<li>根据发震时刻、P 波到时、S 波到时确定数据时间窗</li>
+<li>数据格式：SAC、SEED、miniSEED、ASCII、dataless SEED</li>
+<li>申请得到的数据位于 IRIS 的 FTP 中</li>
+<li>申请得到的数据已经写入事件信息</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>一次只能下载一个事件的波形数据，难以自动化</li>
+<li>只能用于基于事件的波形数据，无法用于基于台站的波形数据或连续波形数据</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="breq-fast">
+<h2>BREQ_FAST<a class="headerlink" href="#breq-fast" title="永久链接至标题">¶</a></h2>
+<p>主页：<a class="reference external" href="https://ds.iris.edu/ds/nodes/dmc/manuals/breq_fast/">https://ds.iris.edu/ds/nodes/dmc/manuals/breq_fast/</a></p>
+<p>教程：<a class="reference external" href="https://blog.seisman.info/breq-fast/">https://blog.seisman.info/breq-fast/</a></p>
+<ul class="simple">
+<li>适用范围：连续波形数据</li>
+<li>特色及优点：<ul>
+<li>发送特定格式的邮件到特定邮箱即可申请数据</li>
+<li>邮件格式相对简单</li>
+<li>易于自动化和批量处理</li>
+<li>数据格式：发送到不同的邮箱可分别得到 SEED、miniSEED 和 dataless 格式的数据</li>
+<li>申请的数据位于 IRIS 的 FTP 里</li>
+</ul>
+</li>
+<li>缺点：需要一定的编程基础</li>
+</ul>
+</div>
+<div class="section" id="dmc-web-service">
+<h2>DMC Web Service<a class="headerlink" href="#dmc-web-service" title="永久链接至标题">¶</a></h2>
+<p>主页：<a class="reference external" href="http://service.iris.edu/fdsnws/dataselect/1/">http://service.iris.edu/fdsnws/dataselect/1/</a></p>
+<ul class="simple">
+<li>适用范围：连续波形数据</li>
+<li>特色及优点：<ul>
+<li>基于 Web 服务，是其他多个工具的基础</li>
+<li>按照固定的格式构建一个 URL 贴到浏览器中即可申请相应的数据</li>
+<li>数据格式：miniSEED</li>
+</ul>
+</li>
+<li>缺点：Web服务太原始，仅在个别情况下比较适用，大多数情况下都需要编程调用该服务</li>
+</ul>
+</div>
+<div class="section" id="jweed">
+<h2>JWEED<a class="headerlink" href="#jweed" title="永久链接至标题">¶</a></h2>
+<p>主页：<a class="reference external" href="https://ds.iris.edu/ds/nodes/dmc/software/downloads/jweed/">https://ds.iris.edu/ds/nodes/dmc/software/downloads/jweed/</a></p>
+<ul class="simple">
+<li>适用范围：基于事件的事件波形数据+基于台站的事件波形数据</li>
+<li>特色及优点：<ul>
+<li>Java 语法写的 GUI 客户端</li>
+<li>基于 DMC Web Service</li>
+<li>跨平台，但兼容性较差，某些平台下无法正常使用</li>
+<li>运行速度稍慢</li>
+<li>地震目录类型：NEIC PDE、GCMT、ISC、ANF</li>
+<li>地震事件筛选条件：时间范围、震级范围、深度范围</li>
+<li>台站筛选条件：台网名、虚拟台网名、通道名</li>
+<li>地震台站对筛选条件：方位角范围、反方位角范围、震中距范围</li>
+<li>数据格式：SAC、RESP、PZ、ASCII、miniSEED</li>
+<li>可以生成 <code class="docutils literal notranslate"><span class="pre">BREQ_FAST</span></code> 格式的文件，供发邮件申请数据</li>
+<li>数据会直接下载保存到本地</li>
+</ul>
+</li>
+<li>缺点：无法下载连续数据</li>
+</ul>
+</div>
+<div class="section" id="web-service-fetch-scripts">
+<h2>Web Service fetch scripts<a class="headerlink" href="#web-service-fetch-scripts" title="永久链接至标题">¶</a></h2>
+<p>主页：<a class="reference external" href="https://seiscode.iris.washington.edu/projects/ws-fetch-scripts">https://seiscode.iris.washington.edu/projects/ws-fetch-scripts</a></p>
+<ul class="simple">
+<li>适用范围：连续波形数据</li>
+<li>特色及优点：<ul>
+<li>Perl 语言写的脚本，在命令行使用</li>
+<li>基于 DMC Web Service</li>
+<li>数据格式：miniSEED</li>
+</ul>
+</li>
+<li>缺点：仅适用于连续波形数据。相对于原始的 Web Service 的优点在于，可编程实现批量申请</li>
+</ul>
+</div>
+<div class="section" id="irisfetch-m">
+<h2>irisfetch.m<a class="headerlink" href="#irisfetch-m" title="永久链接至标题">¶</a></h2>
+<p>主页：<a class="reference external" href="https://ds.iris.edu/ds/nodes/dmc/software/downloads/irisfetch.m/">https://ds.iris.edu/ds/nodes/dmc/software/downloads/irisfetch.m/</a></p>
+<ul class="simple">
+<li>适用范围：连续波形数据</li>
+<li>特色及优点：<ul>
+<li>Matlab 脚本，可以在 Matlab 中直接调用相关函数获取数据</li>
+<li>基于 DMC Web Service</li>
+<li>数据格式：保存为 Matlab 自定义结构体</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="sod">
+<h2>SOD<a class="headerlink" href="#sod" title="永久链接至标题">¶</a></h2>
+<p>主页：<a class="reference external" href="http://www.seis.sc.edu/sod/">http://www.seis.sc.edu/sod/</a></p>
+<ul class="simple">
+<li>适用范围：基于事件的事件波形数据+基于台站的事件波形数据+连续波形数据</li>
+<li>特色及优点：<ul>
+<li>命令行工具，易于批量处理</li>
+<li>申请数据的同时可以对数据进行预处理</li>
+<li>数据格式：SAC、miniSEED</li>
+<li>可生成 <code class="docutils literal notranslate"><span class="pre">BREQ_FAST</span></code> 格式的文件</li>
+</ul>
+</li>
+<li>缺点：学习成本较高</li>
+</ul>
+</div>
+<div class="section" id="obspy">
+<h2>ObsPy<a class="headerlink" href="#obspy" title="永久链接至标题">¶</a></h2>
+<p>主页： <a class="reference external" href="http://docs.obspy.org">http://docs.obspy.org</a></p>
+<ul class="simple">
+<li>适用范围：基于事件的事件波形数据+基于台站的台站波形数据+连续波形数据</li>
+<li>特色及优点：<ul>
+<li>基于 Python 语言，可编程实现任意复杂的数据申请</li>
+<li>文档简单易读，易于使用</li>
+<li>数据格式：miniSEED</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="seismiquery">
+<h2>SeismiQuery<a class="headerlink" href="#seismiquery" title="永久链接至标题">¶</a></h2>
+<p>主页：<a class="reference external" href="http://ds.iris.edu/SeismiQuery/breq_fast.phtml">http://ds.iris.edu/SeismiQuery/breq_fast.phtml</a></p>
+<ul class="simple">
+<li>适用范围：连续波形数据</li>
+<li>特色及优点：<ul>
+<li>网页工具</li>
+<li>可以生成 <code class="docutils literal notranslate"><span class="pre">BREQ_FAST</span></code> 所需的文件</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../naming-convections/" class="btn btn-neutral float-right" title="数据命名规则" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../data-source/" class="btn btn-neutral" title="数据来源" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2012-2018, SeisMan.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'4.0-dev',
+            LANGUAGE:'zh_CN',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
